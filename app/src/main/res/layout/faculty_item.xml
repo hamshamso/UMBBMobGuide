@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="#F5F7FB"
+    app:strokeWidth="0dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_marginTop="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:padding="15dp">
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="68dp"
+                android:id="@+id/deplogo">
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:id="@+id/facname"
+                android:layout_marginLeft="3dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_toRightOf="@+id/deplogo">
+            </TextView>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:background="@drawable/arrow"
+                android:layout_marginTop="23dp"
+                android:layout_alignParentEnd="true">
+            </ImageView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="298dp"
+            android:layout_height="39dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/fac_card"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/cap">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/depnbr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/fac_card"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_gray">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

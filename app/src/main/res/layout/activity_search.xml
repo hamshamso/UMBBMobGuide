@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_bg">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/light_blue"
+        app:elevation="4dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:background="@color/light_blue"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:contentDescription="logo"
+                    android:src="@android:drawable/ic_menu_agenda"
+                    app:tint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UMBB MobGuide"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Digital Campus Guide"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="72dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Search Header Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/light_blue"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@android:drawable/ic_menu_search"
+                     app:tint="@color/white"
+                    android:layout_marginEnd="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Search"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Find faculties and departments"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Search Bar -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@android:drawable/ic_menu_search"
+                    app:tint="@color/text_hint"
+                    android:layout_marginEnd="10dp"/>
+
+                <EditText
+                    android:id="@+id/searchInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Search for faculties or departments."
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="14sp"
+                    android:background="@null"
+                    android:inputType="text"
+                    android:maxLines="1"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Start Searching Placeholder -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@android:drawable/ic_menu_search"
+                     app:tint="#CCCCCC"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start Searching"
+                    android:textColor="@color/text_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter a search term to find faculties and departments"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:elevation="8dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

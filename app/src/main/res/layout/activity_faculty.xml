@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/light_bg"
+    tools:context=".FacultyActivity">
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue_primary"
+            app:elevation="4dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:paddingTop="50dp"
+            android:id="@+id/titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/light_blue"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/umbblogo"
+                    android:contentDescription="logo"
+                    app:tint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UMBB MobGuide"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Digital Campus Guide"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="134dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/bg_raduis_card"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/umbblogo"></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Faculty list"
+                android:textColor="@color/white"
+                android:textSize="28dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="11dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="8 Faculties available"
+                android:textColor="@color/white"
+                android:textSize="15dp"></TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <ListView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/faclist"
+        android:layout_marginTop="260dp"
+        android:layout_marginBottom="100dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+    >
+    </ListView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavFaculty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:elevation="8dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
