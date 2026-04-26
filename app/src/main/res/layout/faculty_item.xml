@@ -11,23 +11,34 @@
     app:cardCornerRadius="16dp"
     app:cardElevation="6dp"
     app:cardBackgroundColor="#F5F7FB"
-    app:strokeWidth="0dp">
+    app:strokeWidth="0dp"
+    android:focusable="false"
+    android:clickable="false">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:clipToPadding="false"
         android:clipChildren="false"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:focusable="false"
+        android:clickable="false">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:orientation="horizontal"
-            android:padding="15dp">
+            android:padding="15dp"
+            android:focusable="false"
+            android:clickable="false">
+
             <ImageView
                 android:layout_width="72dp"
                 android:layout_height="68dp"
-                android:id="@+id/deplogo">
+                android:id="@+id/deplogo"
+                android:focusable="false"
+                android:clickable="false">
             </ImageView>
 
             <TextView
@@ -40,7 +51,9 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="18dp"
-                android:layout_toRightOf="@+id/deplogo">
+                android:layout_toRightOf="@+id/deplogo"
+                android:focusable="false"
+                android:clickable="false">
             </TextView>
 
             <ImageView
@@ -49,8 +62,11 @@
                 android:layout_gravity="right"
                 android:background="@drawable/arrow"
                 android:layout_marginTop="23dp"
-                android:layout_alignParentEnd="true">
+                android:layout_alignParentEnd="true"
+                android:focusable="false"
+                android:clickable="false">
             </ImageView>
+
         </RelativeLayout>
 
         <LinearLayout
@@ -60,7 +76,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/fac_card"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:focusable="false"
+            android:clickable="false">
 
             <ImageView
                 android:layout_width="30dp"
@@ -68,7 +86,9 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="2dp"
-                android:background="@drawable/cap">
+                android:background="@drawable/cap"
+                android:focusable="false"
+                android:clickable="false">
             </ImageView>
 
             <TextView
@@ -79,8 +99,11 @@
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/fac_card"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="@color/text_gray">
+                android:textColor="@color/text_gray"
+                android:focusable="false"
+                android:clickable="false">
             </TextView>
+
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
