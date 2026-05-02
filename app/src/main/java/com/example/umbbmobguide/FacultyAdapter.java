@@ -47,7 +47,7 @@ public class FacultyAdapter extends BaseAdapter {
         TextView tvd = v.findViewById(R.id.depnbr);
         tvd.setText(fac.depnbr);
 
-        // ── Click handled here directly ──
+        // tap faculty → open DetailActivity
         v.setOnClickListener(view -> {
             Intent intent = new Intent(cxt, DetailActivity.class);
             intent.putExtra("DETAIL_TYPE",        "faculty");

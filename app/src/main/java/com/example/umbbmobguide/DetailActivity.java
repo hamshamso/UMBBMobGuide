@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,29 +21,7 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        // ── Bottom navigation ──────────────────────────────────────────────
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavDetail);
-        bottomNav.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                startActivity(new Intent(this, MainActivity.class));
-                return true;
-            } else if (id == R.id.nav_faculties) {
-                startActivity(new Intent(this, FacultyActivity.class));
-                return true;
-            } else if (id == R.id.nav_search) {
-                startActivity(new Intent(this, SearchActivity.class));
-                return true;
-            }
-            return false;
-        });
-
-        // ── Read extras sent by FacultyActivity or DepartmentActivity ──────
-        //    Keys:  DETAIL_TYPE ("faculty" or "department")
-        //           DETAIL_NAME, DETAIL_DESCRIPTION
-        //           DETAIL_PHONE, DETAIL_EMAIL, DETAIL_LOCATION
-        //           DETAIL_LATITUDE, DETAIL_LONGITUDE
-        //           DETAIL_SPECIALTIES  (ArrayList<String>)
+        // ── Read extras ────────────────────────────────────────────────────
         String type        = getIntent().getStringExtra("DETAIL_TYPE");
         String name        = getIntent().getStringExtra("DETAIL_NAME");
         String description = getIntent().getStringExtra("DETAIL_DESCRIPTION");
@@ -50,7 +29,7 @@ public class DetailActivity extends AppCompatActivity {
         String email       = getIntent().getStringExtra("DETAIL_EMAIL");
         String location    = getIntent().getStringExtra("DETAIL_LOCATION");
         double latitude    = getIntent().getDoubleExtra("DETAIL_LATITUDE",  36.7538);
-        double longitude   = getIntent().getDoubleExtra("DETAIL_LONGITUDE",  3.0588);
+        double longitude   = getIntent().getDoubleExtra("DETAIL_LONGITUDE", 3.4774);
         ArrayList<String> specialties =
                 getIntent().getStringArrayListExtra("DETAIL_SPECIALTIES");
 
@@ -65,9 +44,9 @@ public class DetailActivity extends AppCompatActivity {
         TextView tvDesc = findViewById(R.id.tvDetailDescription);
         tvDesc.setText(description != null ? description : "");
 
-        // ── Specialties list ───────────────────────────────────────────────
-        TextView tvSpecTitle          = findViewById(R.id.tvSpecialtiesTitle);
-        LinearLayout specContainer    = findViewById(R.id.specialtiesContainer);
+        // ── Specialties ────────────────────────────────────────────────────
+        TextView tvSpecTitle       = findViewById(R.id.tvSpecialtiesTitle);
+        LinearLayout specContainer = findViewById(R.id.specialtiesContainer);
 
         if (specialties != null && !specialties.isEmpty()) {
             tvSpecTitle.setVisibility(View.VISIBLE);
@@ -93,12 +72,26 @@ public class DetailActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tvDetailLocation))
                 .setText(location != null && !location.isEmpty() ? location : "N/A");
 
+        // ── View Departments button (only for faculty) ─────────────────────
+        Button btnDepartments = findViewById(R.id.btnViewDepartments);
+        final String finalName = name;
+        if ("faculty".equalsIgnoreCase(type)) {
+            btnDepartments.setVisibility(View.VISIBLE);
+            btnDepartments.setOnClickListener(v -> {
+                Intent intent = new Intent(this, DepartmentActivity.class);
+                intent.putExtra("FACULTY_NAME", finalName);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            });
+        } else {
+            btnDepartments.setVisibility(View.GONE);
+        }
+
         // ── Action buttons ─────────────────────────────────────────────────
-        final String fPhone    = phone;
-        final String fEmail    = email;
-        final String fName     = name;
-        final double fLat      = latitude;
-        final double fLng      = longitude;
+        final String fPhone = phone;
+        final String fEmail = email;
+        final double fLat   = latitude;
+        final double fLng   = longitude;
 
         // CALL
         findViewById(R.id.btnCall).setOnClickListener(v -> {
@@ -113,7 +106,7 @@ public class DetailActivity extends AppCompatActivity {
         findViewById(R.id.btnSms).setOnClickListener(v -> {
             if (fPhone != null && !fPhone.isEmpty() && !fPhone.equals("N/A")) {
                 Intent sms = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + fPhone));
-                sms.putExtra("sms_body", "Hello, I am contacting you regarding " + fName);
+                sms.putExtra("sms_body", "Hello, I am contacting you regarding " + finalName);
                 startActivity(sms);
             } else {
                 Toast.makeText(this, "No phone number available", Toast.LENGTH_SHORT).show();
@@ -124,7 +117,7 @@ public class DetailActivity extends AppCompatActivity {
         findViewById(R.id.btnEmail).setOnClickListener(v -> {
             if (fEmail != null && !fEmail.isEmpty() && !fEmail.equals("N/A")) {
                 Intent mail = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + fEmail));
-                mail.putExtra(Intent.EXTRA_SUBJECT, "Inquiry - " + fName);
+                mail.putExtra(Intent.EXTRA_SUBJECT, "Inquiry - " + finalName);
                 startActivity(mail);
             } else {
                 Toast.makeText(this, "No email address available", Toast.LENGTH_SHORT).show();
@@ -136,17 +129,32 @@ public class DetailActivity extends AppCompatActivity {
             Uri geoUri = Uri.parse(
                     "geo:" + fLat + "," + fLng +
                             "?q=" + fLat + "," + fLng +
-                            "(" + Uri.encode(fName != null ? fName : "") + ")");
+                            "(" + Uri.encode(finalName != null ? finalName : "") + ")");
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, geoUri);
             mapIntent.setPackage("com.google.android.apps.maps");
             if (mapIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(mapIntent);
             } else {
-                // fallback: open in browser
-                Uri browserUri = Uri.parse(
-                        "https://maps.google.com/?q=" + fLat + "," + fLng);
+                Uri browserUri = Uri.parse("https://maps.google.com/?q=" + fLat + "," + fLng);
                 startActivity(new Intent(Intent.ACTION_VIEW, browserUri));
             }
+        });
+
+        // ── Bottom navigation (set LAST) ───────────────────────────────────
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNavDetail);
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
+            } else if (id == R.id.nav_faculties) {
+                startActivity(new Intent(this, FacultyActivity.class));
+                return true;
+            } else if (id == R.id.nav_search) {
+                startActivity(new Intent(this, SearchActivity.class));
+                return true;
+            }
+            return false;
         });
     }
 }

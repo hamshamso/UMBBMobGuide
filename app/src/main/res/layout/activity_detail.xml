@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/light_bg">
 
-    <!-- ── Top App Bar (same style as other screens) ── -->
+    <!-- Top App Bar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                     android:layout_height="36dp"
                     android:background="@drawable/umbblogo"
                     android:contentDescription="logo"
-                    app:tint="@color/white" />
+                    app:tint="@color/white"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -46,20 +46,20 @@
                         android:text="UMBB MobGuide"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Digital Campus Guide"
                         android:textColor="#CCFFFFFF"
-                        android:textSize="11sp" />
+                        android:textSize="11sp"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- ── Scrollable body ── -->
+    <!-- Scrollable body -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- ── Hero name card ── -->
+            <!-- Hero card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,7 +90,6 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <!-- Badge: "Faculty" or "Department" -->
                     <TextView
                         android:id="@+id/tvDetailType"
                         android:layout_width="wrap_content"
@@ -102,9 +101,8 @@
                         android:paddingBottom="3dp"
                         android:textColor="#EEFFFFFF"
                         android:textSize="11sp"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"/>
 
-                    <!-- Full name -->
                     <TextView
                         android:id="@+id/tvDetailName"
                         android:layout_width="wrap_content"
@@ -112,12 +110,11 @@
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"
-                        android:lineSpacingExtra="2dp" />
+                        android:fontFamily="sans-serif-medium"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ── Description card ── -->
+            <!-- About card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,7 +136,7 @@
                         android:textColor="@color/text_dark"
                         android:textSize="17sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"/>
 
                     <TextView
                         android:id="@+id/tvDetailDescription"
@@ -147,11 +144,11 @@
                         android:layout_height="wrap_content"
                         android:textColor="#4B5563"
                         android:textSize="14sp"
-                        android:lineSpacingExtra="3dp" />
+                        android:lineSpacingExtra="3dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ── Specialties card ── -->
+            <!-- Specialties card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,18 +171,17 @@
                         android:textColor="@color/text_dark"
                         android:textSize="17sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"/>
 
-                    <!-- Populated dynamically in Java -->
                     <LinearLayout
                         android:id="@+id/specialtiesContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical" />
+                        android:orientation="vertical"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ── Contact info card ── -->
+            <!-- Contact info card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -207,7 +203,7 @@
                         android:textColor="@color/text_dark"
                         android:textSize="17sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="14dp" />
+                        android:layout_marginBottom="14dp"/>
 
                     <!-- Phone row -->
                     <LinearLayout
@@ -228,7 +224,7 @@
                                 android:layout_height="18dp"
                                 android:layout_gravity="center"
                                 android:src="@android:drawable/sym_action_call"
-                                app:tint="@color/green_icon" />
+                                app:tint="@color/green_icon"/>
                         </FrameLayout>
 
                         <LinearLayout
@@ -241,14 +237,14 @@
                                 android:layout_height="wrap_content"
                                 android:text="Phone"
                                 android:textColor="@color/text_hint"
-                                android:textSize="11sp" />
+                                android:textSize="11sp"/>
                             <TextView
                                 android:id="@+id/tvDetailPhone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/text_dark"
                                 android:textSize="14sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -271,7 +267,7 @@
                                 android:layout_height="18dp"
                                 android:layout_gravity="center"
                                 android:src="@android:drawable/sym_action_email"
-                                app:tint="@color/blue_icon" />
+                                app:tint="@color/blue_icon"/>
                         </FrameLayout>
 
                         <LinearLayout
@@ -284,14 +280,14 @@
                                 android:layout_height="wrap_content"
                                 android:text="Email"
                                 android:textColor="@color/text_hint"
-                                android:textSize="11sp" />
+                                android:textSize="11sp"/>
                             <TextView
                                 android:id="@+id/tvDetailEmail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/text_dark"
                                 android:textSize="14sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -313,7 +309,7 @@
                                 android:layout_height="18dp"
                                 android:layout_gravity="center"
                                 android:src="@android:drawable/ic_menu_mylocation"
-                                app:tint="@color/red_icon" />
+                                app:tint="@color/red_icon"/>
                         </FrameLayout>
 
                         <LinearLayout
@@ -326,21 +322,34 @@
                                 android:layout_height="wrap_content"
                                 android:text="Location"
                                 android:textColor="@color/text_hint"
-                                android:textSize="11sp" />
+                                android:textSize="11sp"/>
                             <TextView
                                 android:id="@+id/tvDetailLocation"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/text_dark"
                                 android:textSize="14sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"/>
                         </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ── Action buttons card ── -->
+            <!-- View Departments button (only visible for faculty) -->
+            <Button
+                android:id="@+id/btnViewDepartments"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="14dp"
+                android:text="View Departments"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/light_blue"
+                android:visibility="gone"/>
+
+            <!-- Quick Actions card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -362,7 +371,7 @@
                         android:textColor="@color/text_dark"
                         android:textSize="17sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="14dp" />
+                        android:layout_marginBottom="14dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -370,7 +379,7 @@
                         android:orientation="horizontal"
                         android:gravity="center">
 
-                        <!-- Call button -->
+                        <!-- Call -->
                         <LinearLayout
                             android:id="@+id/btnCall"
                             android:layout_width="0dp"
@@ -393,7 +402,7 @@
                                     android:layout_height="22dp"
                                     android:layout_gravity="center"
                                     android:src="@android:drawable/sym_action_call"
-                                    app:tint="@color/green_icon" />
+                                    app:tint="@color/green_icon"/>
                             </FrameLayout>
 
                             <TextView
@@ -402,10 +411,10 @@
                                 android:text="Call"
                                 android:textColor="@color/text_dark"
                                 android:textSize="12sp"
-                                android:layout_marginTop="6dp" />
+                                android:layout_marginTop="6dp"/>
                         </LinearLayout>
 
-                        <!-- SMS button -->
+                        <!-- SMS -->
                         <LinearLayout
                             android:id="@+id/btnSms"
                             android:layout_width="0dp"
@@ -428,7 +437,7 @@
                                     android:layout_height="22dp"
                                     android:layout_gravity="center"
                                     android:src="@android:drawable/ic_menu_send"
-                                    app:tint="@color/blue_icon" />
+                                    app:tint="@color/blue_icon"/>
                             </FrameLayout>
 
                             <TextView
@@ -437,10 +446,10 @@
                                 android:text="SMS"
                                 android:textColor="@color/text_dark"
                                 android:textSize="12sp"
-                                android:layout_marginTop="6dp" />
+                                android:layout_marginTop="6dp"/>
                         </LinearLayout>
 
-                        <!-- Email button -->
+                        <!-- Email -->
                         <LinearLayout
                             android:id="@+id/btnEmail"
                             android:layout_width="0dp"
@@ -463,7 +472,7 @@
                                     android:layout_height="22dp"
                                     android:layout_gravity="center"
                                     android:src="@android:drawable/sym_action_email"
-                                    app:tint="@color/purple_icon" />
+                                    app:tint="@color/purple_icon"/>
                             </FrameLayout>
 
                             <TextView
@@ -472,10 +481,10 @@
                                 android:text="Email"
                                 android:textColor="@color/text_dark"
                                 android:textSize="12sp"
-                                android:layout_marginTop="6dp" />
+                                android:layout_marginTop="6dp"/>
                         </LinearLayout>
 
-                        <!-- Map button -->
+                        <!-- Map -->
                         <LinearLayout
                             android:id="@+id/btnMap"
                             android:layout_width="0dp"
@@ -497,7 +506,7 @@
                                     android:layout_height="22dp"
                                     android:layout_gravity="center"
                                     android:src="@android:drawable/ic_menu_mylocation"
-                                    app:tint="@color/red_icon" />
+                                    app:tint="@color/red_icon"/>
                             </FrameLayout>
 
                             <TextView
@@ -506,7 +515,7 @@
                                 android:text="Map"
                                 android:textColor="@color/text_dark"
                                 android:textSize="12sp"
-                                android:layout_marginTop="6dp" />
+                                android:layout_marginTop="6dp"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -516,7 +525,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- ── Bottom Navigation ── -->
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavDetail"
         android:layout_width="match_parent"
@@ -527,6 +536,6 @@
         app:itemIconTint="@color/bottom_nav_color"
         app:itemTextColor="@color/bottom_nav_color"
         app:labelVisibilityMode="labeled"
-        app:elevation="8dp" />
+        app:elevation="8dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
